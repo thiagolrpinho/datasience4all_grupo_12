@@ -1,12 +1,25 @@
 # Data Science 4 All Grupo 3 Educação Física
+
 Projeto final da matéria de Tópicos Avançados em Programação - Data Sience 4 All
 
-# Trello do Projeto
-[Trello](https://trello.com/b/GaaLi38O/datascience-grupo-3-educa%C3%A7%C3%A3o-f%C3%ADsica)
+## Membros
 
-# 1 - Busca dos dados no e-Lattes
-1 - Busca dos dados no [e-Lattes](http://unb.elattes.com.br "e-lattes")
-Após definidos os programas, buscar no elattes as análises disponíveis para os respectivos programas. Criar novas análises no caso do universo não ser o mesmo (mais ou menos professores que no programa atual). As análises foram feitas no semestre passado e podem ter havido alterações no programa. O número tpcorreto e nome dos professores pode ser encontrado no portal da CAPES:
+Bruno Helder - 1X/00YYYYYYYY  
+Gabriel Almeida - 1X/00YYYYYYY  
+Thiago Luis - 15/0065205  
+
+## Trello do Projeto
+
+[Trello](https://trello.com/b/GaaLi38O/datascience-grupo-3-educa%C3%A7%C3%A3o-f%C3%ADsica)  
+
+
+## Etapas do Projeto
+
+### 1 - Busca dos dados no e-Lattes  
+ 
+Após definidos os programas, buscar no elattes as análises disponíveis para os respectivos programas. Criar novas análises no caso do universo não ser o mesmo (mais ou menos professores que no programa atual). As análises foram feitas no semestre passado e podem ter havido alterações no programa. O número correto e nome dos professores pode ser encontrado no portal da CAPES.
+Links úteis:  
+[e-Lattes](http://unb.elattes.com.br "e-lattes") 
 [Sucupira](https://sucupira.capes.gov.br/sucupira/public/consultas/coleta/docente/listaDocente.jsf "Sucupira")
 
 **Nota do Professor:**
