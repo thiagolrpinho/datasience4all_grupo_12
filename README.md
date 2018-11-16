@@ -4,9 +4,10 @@
 
   ## Membros
 
-  Bruno Helder - 1X/00YYYYYYYY  
+  Bruno Helder - 15/0120338  
   Gabriel Almeida - 15/0009887  
   Thiago Luis - 15/0065205  
+  
 
   ## Trello do Projeto
 
