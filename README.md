@@ -37,39 +37,33 @@
    >Ela vai rodar por alguns minutos dependendo do tamanho e depois vai estar pronta para visualização na aba Temporário. Abra a análise e verifique que contém todos os nomes que buscaram. Depois faça o download dos arquivos json para análise.
 
 ### 3 - Descrição da Metodologia
-   
-	 Nesta sessão iremos descrever e analisar o processo de exploração, pesquisa e desenvolvimento utilizados para a criação deste projeto, o **CRISP-DM**.
-
-    **CRISP DM** é abreviação de Cross-industry standard process for data mining que é um padrão industrial aberto de processos para abordar trabalhos de data mining e análise de dados em geral. Esta metodologia basicamente se divide em seis etapas: _Business Understanding_ , _Data Understanding_, _Data preparation_ , _Modeling_ , _Evaluation_ e _Deployment_. Iremos descrever casa uma das etapas mais detalhadamente à seguir.
+   Nesta sessão iremos descrever e analisar o processo de exploração, pesquisa e desenvolvimento utilizados para a criação deste projeto, o **CRISP-DM**.
+	**CRISP DM** é abreviação de Cross-industry standard process for data mining que é um padrão industrial aberto de processos para abordar trabalhos de data mining e análise de dados em geral. Esta metodologia basicamente se divide em seis etapas: _Business Understanding_ , _Data Understanding_, _Data preparation_ , _Modeling_ , _Evaluation_ e _Deployment_. Iremos descrever casa uma das etapas mais detalhadamente à seguir.
 
 ##### Business Understanding
-	
-	A primeira etapa do processo é talvez a mais abstrata de todas, que é o conhecimento sobre o problema. O objetivo é que se avalie os custos e os impactos da solução a ser proposta. Nesta etapa também, são definidos os objetivos e metas do processo.
-
+A primeira etapa do processo é talvez a mais abstrata de todas, que é o conhecimento sobre o problema. O objetivo é que se avalie os custos e os impactos da solução a ser proposta. Nesta etapa também, são definidos os objetivos e metas do processo.
 	Neste projeto estamos analisando os dados relativos aos Programas de Pós-Graduação da Universidade de Brasília. À partir disso desejamos realizar uma análise exploratória sobre os dados para oferecer novas perspectivas sobre estes programas. 
 
 ##### Data Understanding
-	
-	_Data Understanding_, que pode ser traduzido para Entendimento dos Dados, é a etapa que consiste em avaliar os dados já disponíveis. Deve-se organizar e descrever os dados obtidos, e, avaliar se é possível atingir os objetivos determinados na etapa anterior com estes dados. Esta etapa tem um teor também exploratório, pois é necessário avaliar que tipo de análise é possível realizar com os dados disponíveis e tomar decisões baseadas nesta análise. Por exemplo, é possível determinar que é necessário realizar o processo de obtenção dos dados novamente, ou retornar para a etapa de __Business Understanding__.
+_Data Understanding_, que pode ser traduzido para Entendimento dos Dados, é a etapa que consiste em avaliar os dados já disponíveis. Deve-se organizar e descrever os dados obtidos, e, avaliar se é possível atingir os objetivos determinados na etapa anterior com estes dados. Esta etapa tem um teor também exploratório, pois é necessário avaliar que tipo de análise é possível realizar com os dados disponíveis e tomar decisões baseadas nesta análise. Por exemplo, é possível determinar que é necessário realizar o processo de obtenção dos dados novamente, ou retornar para a etapa de __Business Understanding__.
 
-	Neste projeto, temos acesso tanto aos dados disponibilizados pelo professor, em diferentes arquivos em formato __JSON__, com dados sobre todos os projetos de pós-graduação da UnB, e também os dados disponíveis no E-lattes. O arquivo __profile.json__ contém informações referentes ao perfil dos docentes, identificados pelo número de matrícula e contém nome, resumo do currículo, áreas de atuação, endereço profissional, produção bibliográfica que contém os capítulos de livro, eventos, livros e artigos em periódicos publicados pelo docente. O arquivo __publication.json__ tem informações referentes as publicações da determinada área no período entre 2010 e 2017.
+Neste projeto, temos acesso tanto aos dados disponibilizados pelo professor, em diferentes arquivos em formato __JSON__, com dados sobre todos os projetos de pós-graduação da UnB, e também os dados disponíveis no E-lattes. O arquivo __profile.json__ contém informações referentes ao perfil dos docentes, identificados pelo número de matrícula e contém nome, resumo do currículo, áreas de atuação, endereço profissional, produção bibliográfica que contém os capítulos de livro, eventos, livros e artigos em periódicos publicados pelo docente. O arquivo __publication.json__ tem informações referentes as publicações da determinada área no período entre 2010 e 2017.
 
 
 ##### Data Preparation
 	
-	A etapa de __Data Preparation__, ou Preparação dos dados, é uma etapa de cunho técnico que tem como objetivo realizar a limpeza dos dados para o processo de modelagem. Dependendo da maneira de como foi realizada a coletagem de dados, esta etapa pode se tornar menos ou mais relevante. Nesta etapa também é realizada a construção de características derivadas, ou seja, dados que são possíveis ser inferidos dos dados disponíveis.
+A etapa de __Data Preparation__, ou Preparação dos dados, é uma etapa de cunho técnico que tem como objetivo realizar a limpeza dos dados para o processo de modelagem. Dependendo da maneira de como foi realizada a coletagem de dados, esta etapa pode se tornar menos ou mais relevante. Nesta etapa também é realizada a construção de características derivadas, ou seja, dados que são possíveis ser inferidos dos dados disponíveis.
 
-	Tomando em conta o projeto aqui sendo desenvolvido, esta etapa é menos relevante pois já obtemos os dados semi-filtrados, que podem ser facilmente utilizados no ambiente de desenvolvimento utilizando a linguagem R, restando apenas selecionar as caracterísitcas a serem utilizadas.
+Tomando em conta o projeto aqui sendo desenvolvido, esta etapa é menos relevante pois já obtemos os dados semi-filtrados, que podem ser facilmente utilizados no ambiente de desenvolvimento utilizando a linguagem R, restando apenas selecionar as caracterísitcas a serem utilizadas.
 
 ##### Modelagem
 	
-	Nesta etapa é aplicado as técnicas de __Data Science__ e __Data Analisys__ para construir modelos adequados para o contexto da situação e consequentemente tirar conclusões ou proposições para as soluções do problema proposto na etapa de __Business Understanding__.
+Nesta etapa é aplicado as técnicas de __Data Science__ e __Data Analisys__ para construir modelos adequados para o contexto da situação e consequentemente tirar conclusões ou proposições para as soluções do problema proposto na etapa de __Business Understanding__.
 	
-	No projeto em questão, iremos ((__inserir o que vai ser feito no projeto__)).
+No projeto em questão, iremos ((__inserir o que vai ser feito no projeto__)).
 
 ##### Evaluation
-	Fase de avaliação dos resultados obtidos na etapa de modelagem e verificando se cumpre os objetivos definidos na etapa de __business understanding__.
+Fase de avaliação dos resultados obtidos na etapa de modelagem e verificando se cumpre os objetivos definidos na etapa de __business understanding__.
 
 ##### __Deployment__
-	
-	Fase de implantação de fato dos resultados obtidos nas análises realizadas e assim concluindo o processo de desenvolvimento.
+Fase de implantação de fato dos resultados obtidos nas análises realizadas e assim concluindo o processo de desenvolvimento.
