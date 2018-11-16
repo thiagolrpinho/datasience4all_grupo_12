@@ -4,7 +4,7 @@ Projeto final da matéria de Tópicos Avançados em Programação - Data Sience 
 
 ## Membros
 
-Bruno Helder - 1X/00YYYYYYYY  
+Bruno Helder - 15/0120338  
 Gabriel Almeida - 1X/00YYYYYYY  
 Thiago Luis - 15/0065205  
 
