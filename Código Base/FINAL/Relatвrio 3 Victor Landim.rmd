@@ -1,0 +1,410 @@
+---
+title: "Relatório -- Ciência de Dados Aplicada"
+subtitle: "Grupo 24: Política Social"
+author: "Victor Landim 15/0023031"
+date: "31 de Maio de 2018"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+library(xtable)
+library(readr)
+library(readxl)
+library(jsonlite)
+library(tidyverse)
+library(stringr)
+```
+
+# Introdução & Contextualização
+Neste relatório iremos investigar e explorar o Programa de Pós-Graduação da Universidade de Brasília em Política Social. 
+
+O Programa de Pós-Graduação em Política Social (PPGPS) está vinculado ao Departamento de Serviço Social (SER), do Instituto de Ciências Humanas (IH), da Universidade de Brasília (UnB) e constitui importante espaço de formação, pesquisa e produção de conhecimento na área da Política Social. Desde 2013 está avaliado com o Conceito 6 pela CAPES. Forma anualmente mestres e doutores em Política Social e muitas teses e dissertações foram publicadas em livros e/ou artigos, e adotadas como referências para a formação em âmbito de graduação e pós-graduação. O PPGPS recebeu por três vezes o Prêmio Capes de Melhor Tese da Área de Serviço Social (2008, 2011 e 2014).
+
+Desde seu início, o PPGPS mantém como área de concentração "Estado, Política Social e Cidadania", e tem como eixo analítico a relação dialética e contraditória entre Estado, Classes Sociais e Direitos, mediada pelas lutas que decorrem do conflito entre capital e trabalho.
+
+O corpo docente do Programa de Pós-Graduação em Política Social é composto atualmente por 21 professores/as orientadores/as, sendo 18 permanentes e 3 colaboradores/as.
+
+## Objetivos do Programa
+* Formar recursos humanos de alto nível, qualificados para o ensino superior, a pesquisa, a produção de conhecimento, o planejamento, a gestão e a análise de políticas sociais.
+* Fomentar a produção e difusão de conhecimento sobre questões referentes às políticas sociais em âmbito nacional, regional e local.
+* Ampliar o número de profissionais de Serviço Social e de áreas afins nas atividades de gestão, formulação e análise de políticas sociais.
+* Estabelecer intercâmbios técnico-científicos com instituições de ensino e pesquisa na área de política social e afins, em âmbito internacional, nacional, regional e local.
+* Contribuir para o conhecimento e elaboração de propostas de política social, especialmente  na região Centro-Oeste.
+* Consolidar estratégias de articulação entre a pós-graduação e a graduação, visando ampliação e melhoria da qualidade das produções científicas discentes e docentes.
+
+## Grupos de Pesquisa
+
+Os grupos de pesquisa do Programa, seus respectivos coordenadores e docentes são:
+
+* GESST-Grupo de Estudos e Pesquisas sobre Seguridade Social e Trabalho (2000)
+    + Coordenadora: Profª. Drª Ivanete Salete Boschetti
+    + Docentes Participantes: Profª. Drª. Sandra Oliveira Teixeira ;  Profª. Drª. Rosa Helena Stein; Profª. Drª. Maria Lucia Lopes da Silva; Prof. Dr. Evilasio da Silva Salvador
+* LOCUSS - Grupo de Pesquisas sobre Poder Local, Políticas Urbanas e Serviço Social (2001)
+    + Coordenador: Prof. Dr. Perci Coelho de Souza
+* VIOLES - Grupo de Pesquisa sobre Tráfico de Pessoas , Violência e Exploração Sexual de Mulheres (2002)
+    + Coordenadora: Profª. Drª. Maria Lúcia Pinto Leal
+* DEFICIÊNCIA, DIREITOS E POLÍTICAS (2004)
+    + Coordenadora: Profª. Drª. Lívia Barbosa
+    + Docente Participante: Prof. Dr. Cristiano Guedes 
+* GENPOSS - Gênero, Política Social e Serviços Sociais (2004)
+    + Coordenadora: Profª. Drª. Marlene Teixeira Rodrigues
+* POLITIZA - Grupo de Estudos Político-sociais (2006)
+    + Coordenadora: Profª. Drª. Potyara Amazoneida Pereira Pereira
+    + Docentes Participantes: Profª. Drª. Sylvia Cristina Yannoulas; Profª. Drª. Denise Bomtempo Birche de Carvalho; Profª. Drª. Camila Potyara Pereira.
+* TEDis - Trabalho, Educação e Discriminação (2007)
+    + Coordenadoras: Profª. Drª. Silvia Cristina Yannoulas;  Profª Drª Carolina Cássia Batista Santos
+    + Docentes Participantes: Profª. Drª.  Potyara Amazoneida Pereira Pereira 
+* GEPEDSS - Democracia, Sociedade Civil e Serviço Social (2010)
+    + Coordenadora: Profª. Drª. Ângela Vieira Neves
+* NEADS - Núcleo de Estudos Agrários, Desenvolvimento e Segurança Alimentar e  Nutricional (2010)
+    + Coordenador: Prof. Dr. Newton Narciso Gomes Junior
+* TRASSO - Grupo de Estudos e Pesquisas sobre Trabalho, Sociabilidade e Serviço Social (2013)
+    + Coordenador: Prof. Dr. Reginaldo Guiraldelli
+    + Docentes Participantes: Profª. Drª Andréia de Oliveira, Profª. Michelly Ferreira Monteiro Elias
+    
+## Linhas de pesquisa
+
+### Política Social, Estado e Sociedade
+
+Esta linha aborda pesquisas sobre as políticas sociais na sociabilidade capitalista, orientada e pautada por diferentes e divergentes abordagens teórico-conceituais. As políticas sociais nas contraditórias relações entre o Estado e as classes sociais. A luta pelos direitos, cidadania, emancipação política e humana. Agrega pesquisas voltadas para a compreensão e análise de políticas sociais, enfocando suas concepções; bases legais e institucionais; organização e forma de gestão; mecanismos de funcionamento do fundo público, do orçamento e do financiamento; tendências e perspectivas, contemplando o controle democrático dos recursos públicos.
+
+
+### Classes, Lutas Sociais e Direitos
+
+Esta linha abrange investigações acerca da condição das classes sociais, lutas sociais e direitos no processo histórico de desenvolvimento do capitalismo, considerando a relevância da luta de classes nas lutas sociais. O significado de lutas contra diversas formas de exploração e opressão na defesa de direitos, da emancipação política e de um projeto de emancipação humana; implicações da restauração capitalista nas lutas sociais e formas de organização política; distintas perspectivas teóricas na análise de movimentos e lutas sociais; relação entre movimentos/lutas sociais, Serviço Social e projeto ético-político profissional.
+
+### Trabalho, Questão Social e Emancipação
+ 
+Esta linha articula pesquisas que debatem os fundamentos do trabalho, da questão social e sua produção e reprodução na sociabilidade capitalista. A relação entre trabalho, questão social e emancipação. O significado teórico, polêmicas conceituais e expressões históricas da questão social. As transformações no mundo do trabalho e suas implicações na produção e reprodução da questão social e no conflito capital/trabalho e suas particularidades no Brasil, no contexto do capitalismo periférico e dependente. As lutas pelos direitos dos/as trabalhadores/as. Serviço Social, questão social e projeto ético-político profissional.
+
+### Exploração e Opressão de Sexo/Gênero, Raça/Etnia e Sexualidades
+
+Esta linha aborda as temáticas relacionadas às relações sociais de sexo/gênero, etnia/raça e sexualidades na sua relação consubstancial com as relações sociais de classe. Parte da compreensão de que as diferentes e particulares expressões da questão social são mediadas dialeticamente por tais relações. Analisa as classes sociais estruturadas no antagonismo capital/trabalho e nas desigualdades constitutivas da sociedade racista, patriarcal e heterossexista, que produz e reproduz discriminações, preconceitos e violações de direitos. Apresenta o debate sobre as relações sociais de classe, sexo/gênero, etnia/raça e sexualidades de forma multideterminada.
+
+
+## Eventos e Congressos
+O PPGPS mostrou participação nos seguintes eventos e congressos: 
+
+
+### 2013
+
+1. 14º Congresso Brasileiro de Assistentes Sociais - CBAS, Águas de Lindóia/SP;
+2. 1º Encontro Internacional de Política Social e 8º Encontro Nacional de Política Social - UFES;
+3. VI Jornada Internacional de Políticas Públicas JOINPP - UFMA;
+4. VII Congresso Latino-Americano de Estudos do Trabalho - ALAST/USP;
+5. II Congresso de Qualidade de Vida no Trabalho no Serviço Público Brasileiro -
+QVT/Brasília;
+6. III Congresso Ibero-Americano de Direito Sanitário e II Congresso Brasileiro de Direito
+Sanitário - Brasília;
+7. XVIII Congresso Brasileiro de Ciências do Esporte e V Congresso Internacional de
+Ciências do Esporte - Brasília (2013)
+8. X Seminário Internacional Fazendo Gênero - UFSC
+
+### 2014
+
+1. 2º Encontro Internacional de Política Social e 9º Encontro Nacional de Política Social - UFES/ES
+2. XIV ENPESS - UFRN/RN
+3. III Congresso Nacional de Avaliação em Educação - SP
+4. IX Jornadas de Estudios Sociales de la Economía - Buenos Aires
+5. VIII Encontro Nacional da ANDHEP Políticas Públicas para a Segurança Pública e
+Direitos Humanos - SP
+6. II Simpósio Orçamento Público e Políticas Sociais - PR
+7. X Seminário Internacional da RedEstrado - BA
+8. II Colóquio de Estudos Feministas e de Gênero - Brasília
+9. IX Seminário do Trabalho: Trabalho, educação e neodesenvolvimentismo - SP
+10. II Simpósio Nacional sobre Democracia e Desigualdades, 2014, Brasília
+
+### 2015
+
+1. 3º Encontro Internacional de Política Social e 10º Encontro Nacional de Política Social - UFES/ES
+2. VII Jornada Internacional de Políticas Públicas JOINPP - UFMA/MA
+3. XIX Congresso Brasileiro de Ciências do Esporte - CONBRACE e o VI Congresso
+Internacional de Ciências do Esporte (CONICE)
+4. VII Congreso Internacional de Ciencias, Artes y Humanidades - El Cuerpo Descifrado
+5. Seminário Nacional de Serviço Social, Trabalho e Política Social - UFSC
+6. VII Congreso Internacional de Ciencias, Artes y Humanidades - El Cuerpo Descifrado -
+México
+7. XXI Seminario Latinoamericano de Escuelas de Trabajo Social - México
+8. Encuentro de la Sociedad Latinoamericana de Economía Política y Pensamiento
+Crítico (SEPLA) - México
+9. VII Congresso do Comitê Latinoamericano de Geriatria e Gerontologia - Belém/PA
+10. V Encontro Mineiro de Administração Pública, Economia Solidária e Gestão Social -
+MG
+
+### 2016
+
+1. XV Encontro Nacional de Pesquisadoras/es em Serviço Social
+2. VII Congresso Brasileiro de Ciências Sociais e Humanas em Saúde
+3. XV CBAS - Congresso Brasileiro de Serviço Social
+4. III Encontro Teoria do Valor-Trabalho e Ciências Sociais
+5. IV SERNEGRA e II COPENE Centro-Oeste
+6. III Colóquio de Estudos Feministas e de Gênero. Mulheres e violências: interseccionalidades
+7. VII Encontro de Administração Política (VII EAP)
+8. Congresso Brasileiro de Educação Especial, 2016
+9. Movimientos Pedagógicos y Trabajo Docente en Tiempos de Estandarización.
+
+## Internacionalização
+
+Os dados registrados no relatório nos diversos itens revelam o esforço do PPGPS nos últimos anos, e
+especialmente nesse quadriênio que recebeu o Conceito 6 da CAPES, para consolidar seu processo
+de internacionalização, por meio de intercâmbios internacionais, além de outras atividades,
+elencadas a seguir:
+
+1. Docentes do corpo permanente com participação como pesquisadores em Programas de IES
+estrangeiras: no quadriênio 2013-2014, dos 16 docentes permanentes ao final de 2016, 08
+(50%) haviam participado em Programas no exterior, na qualidade de visitantes,
+pesquisadores convidados e/ou articuladores de intercâmbios, já registrados no item
+intercâmbios e especificado em atividades complementares;
+
+2. Docentes em estágio pós-doutoral e/ou estágio-sênior no exterior: dos 16 docentes
+permanentes ao final de 2016, 13 (81,3%) já realizaram pós-doutoramento, sendo que 07
+(43,7%) realizaram seu pós-doutoramento no exterior; somente no período desse quadriênio
+(2013-2016) 08 docentes realizaram pós-doutoramento, sendo 05 no Brasil e 03 no exterior.
+Além do pós-doutoramento com afastamento de 1 ano, nesse mesmo quadriênio mais 08
+docentes permanentes usufruíram Licença Capacitação (com 3 meses de afastamento). Em
+2016, especificamente, 02 docentes iniciaram afastaram para pós-doutoramento (sendo 01
+no exterior), 02 usufruíram licença capacitação (3 meses) e uma docente realizou estágio
+pós-doutoral de 6 meses com bolsa PROCAD/CAPES.
+
+3. Alunos em IES estrangeiras, para realização de doutorado-sanduíche: no âmbito do Programa
+Institucional de Bolsas de Doutorado Sanduíche no Exterior (PSDE), o PPGPS enviou
+originalmente em 2005 e 2006 duas estudantes para Espanha. Após um período sem
+ocorrências, em 2012 duas doutorandas usufruíram o PSDE, sendo uma na University of 
+Copenhagen e outra no Colégio Mexiquense. Em 2013 uma doutoranda realizou estudos na
+Ryerson University´s School of Social Work no Canadá. Em 2014 uma doutoranda foi para
+Espanha e outra para Holanda (Universidade de Leiden). Em 2015 não houve ocorrência e
+em 2016 duas doutorandas tiveram bolsa aprovada pela CAPES para realizar o PDSE em
+2017.
+
+4. Alunos estrangeiros no PPGPS: a primeira experiência foi realizada no quadriênio 2013-2014,
+e envolveu o estágio de doutoranda da Universidade Emory (doutorado sanduíche no
+Programa). Também nesse quadriênio, o PPGPS recebeu 04 discentes estrangeiros, sendo
+duas para mestrado pleno - Chile e Colômbia - e 02 para doutorado pleno - Peru e
+Moçambique. Uma das mestrandas (Chile), após conclusão do curso, ingressou no
+doutorado.
+
+5. Participação de docentes em eventos científicos internacionais com comunicações científicas:
+Entre 2013-2016, 11 docentes permanentes (68,8%) apresentaram comunicações científicas
+em congressos internacionais realizados no exterior, sendo 02 em 2016; 05 em 2015; 03 em
+2014 e 01 em 2013);
+
+6. Participação de docentes como convidados em eventos científicos internacionais, realizados
+no Brasil - no quadriênio, 05 docentes permanentes realizaram palestras como convidados
+em 08 eventos internacionais realizados no Brasil;
+
+7. Participação em reuniões e atividades de interlocução em eventos promovidos por redes de
+pesquisa temática no exterior: essa modalidade de participação (pesquisadores eventuais,
+conferencistas e palestrantes) tem sido constante e proporcionou condições para a gradativa
+consolidação da internacionalização. Estes intercâmbios estão relatados no item
+"intercâmbios internacionais" e envolvem as seguintes instituições/países: Associação
+Latino-americana de Estudos do Trabalho; Centro de Estudos de Estado y Sociedad, CEDES;
+Programa de Pós-graduação em Gênero e Políticas Públicas - Prigepp da Flacso; Universidade
+de Buenos Aires; Universidade Nacional de Entre Ríos; Universidade Nacional de Misiones;
+Universidade Nacional de Rosario; Grupo de Investigación Complutense en Gobernanza y
+Gestión Púlbica da Universidad Complutense de Madrid (UCM); International Women's
+Health Coalition, IWHC; International Network on Feminist Approaches to Bioethics, FAB;
+International Association of Bioethics, IAB; Universidade Emory; Cermes - Centre de
+Recherche, Médecine, Sciences, Santé, Santé Mentale, Societé; ERIS/CMH da Ecole des
+Hautes Etudes em Sciences Sociales/França; Centro De Estudos Sociais da Universidade de
+Coimbra e o Instituto Universitario de Desarrollo Y Cooperación de la Universidad
+Complutense de Madrid (IUDC-UCM); Universidade Católica Portuguesa; Grupo de Estudos 
+do Trabalho e dos Conflitos Sociais da Universidade Nova de Lisboa; World Health
+Organization, WHO/Suiça; Universidade de Yale, no Institute in Bioethics at Yale University's
+Interdisciplinary Center for Bioethics.
+
+8. Financiamento estrangeiro: a maioria dos financiadores dos projetos realizados no Programa
+é proveniente de órgãos públicos nacionais. No quadriênio 2013-2016 ocorreu somente um
+financiamento de origem estrangeira, proveniente do Center on Budget and Policy Priorities;
+
+9. Participação em comitês editoriais e em editoria de periódicos de circulação internacional: 05
+docentes permanentes (31,2%) participam de comitês editoriais das seguintes Revistas
+Estrangeiras: Revista Fronteras (Universidad de la República, Uruguai); Revista Perspectivas
+(Universidade Nacional de Misiones, Argentina); Revista Zona Franca (Universidade Nacional
+de Rosario, Argentina); Revista Opera (Bogotá/Colômbia da Faculdade de Finanzas, Gobierno
+y Relaciones Internacionales da Universidade Externado de Colômbia);
+
+10. Pareceristas de comunicações científicas em eventos internacionais da área ou de área afins:
+08 docentes permanentes (47%) colaboraram no quadriênio como pareceristas em eventos
+internacionais realizados no Brasil e/ou no exterior;
+
+11. Histórico de participação em diretorias de associações científicas nacionais e internacionais:
+conforme já sinalizado em outro item, uma docente permanente já participou da direção da
+Federação Internacional de Trabalhadores Sociais (FITS), 02 foram de direção do CFESS e 02
+estão na direção até 2017; 09 foram da direção nacional da ABEPSS e vários já foram da
+direção regional; 01 está atualmente na direção regional da ABEPSS;
+
+12. Realização do Seminário Internacional em Política Social: conforme já apontado, estava
+prevista sua sexta edição para 2015, mas o PPGPS foi obrigado a suspendê-lo devido aos
+cortes orçamentários. A perspectiva é realizá-lo e 2017;
+
+13. O PPGPS mantém 13 intercâmbios internacionais registrados detalhadamente no item
+"intercâmbios internacionais".
+
+***
+
+# Metodologia
+Para a condução de nosso estudo no programa de pós graduação, empregamos a metologia CRISP-DM, que é desenhada especificamente para processos de mineração de dados. CRISP-DM (Cross Industry Standard Process for Data Mining) é formada por 6 etapas que descrevem como o estudo deve ser conduzido. Inicia-se com o Entendimento do Negócio, em que o cientista de dados busca entender detalhamente o problema que irá ser resolvido. Em seguida, vem a Compreensão dos Dados, em que se organiza e se descreve todos os dados disponíveis, de forma a propiciar-se o início do estudo. Logo depois, o profissional executa a Preparação dos Dados, processo em que se escolhe o formato dos dados, seus atributos e padroniza-se eles. Por fim, vêm os processos de Modelagem, Avaliação e Desenvolvimento, em que o profissional, com os dados em mãos, emprega a estratégia de mineração de dados mais adequada, realiza a análise propriamente dita e recolhe os resultados obtidos. 
+
+Ainda, para a confecção deste relatório, utilizou-se, além da plataforma R, os pacotes `jsonlite` para importação dos dados, `dplyr` para a manipulação deles e `ggplot2` para sua visualização.
+
+Inicia-se o estudo importando os dados a serem utilizados.
+
+Para as orientações, normaliza-se a estrutura do dado com o script abaixo:
+
+```{r, echo=TRUE}
+orientacoes <- fromJSON("data/PolSocial.advise.json")
+orientacoes <- orientacoes %>%
+  lapply(function(x) {
+    bind_rows(x, .id = 'ano')
+  }) %>%
+  bind_rows(.id = 'tipo_orientacao')
+
+orientacoes$nome_orientadores <- as.character(orientacoes$nome_orientadores)
+```
+
+```{r echo=TRUE}
+names(orientacoes)
+```
+
+O arquivo que separa pesquisadores por área já está organizado:
+```{r, echo=TRUE}
+area_pesquisadores <- fromJSON("data/PolSocial.researchers_by_area.json")
+area_pesquisadores <- area_pesquisadores$`Areas dos pesquisadores`
+names(area_pesquisadores)
+```
+
+
+```{r echo=FALSE, eval=FALSE}
+
+didnt work!
+names(area_pesquisadores)
+
+for(x in 1:nrow(orientacoes)) {
+  for (a in 1:length(area_pesquisadores)) {
+    for(b in 1:length(a)) {
+      if(orientacoes[x, ]$id_lattes_orientadores[[1]][1] == area_pesquisadores[[a]][b]) {
+        area_pesquisadores[[a]][b] <- orientacoes[x, ]$nome_orientadores[[1]][1]
+      }
+    }
+  }
+}
+
+```
+
+
+***
+
+# Resultados
+Com os dados tratados em mãos, iremos analisá-los visualmente para tentar extraír algum entendimento.
+
+```{r, echo=FALSE}
+labs_orient <- c("Concl. Doutorado",
+          "Concl. Mestrado",
+          "Concl. Pós Doc",
+          "Andamento Pós Doc",
+          "Andamento Doutorado",
+          "Andamento Graduação",
+          "Andamento PIBIC",
+          "Andamento Mestrado", 
+          "Outras Orientações")
+breaks_orient <- c("ORIENTACAO_CONCLUIDA_DOUTORADO",
+            "ORIENTACAO_CONCLUIDA_MESTRADO",
+            "ORIENTACAO_CONCLUIDA_POS_DOUTORADO",
+            "ORIENTACAO_EM_ANDAMENTO_DE_POS_DOUTORADO",
+            "ORIENTACAO_EM_ANDAMENTO_DOUTORADO",
+            "ORIENTACAO_EM_ANDAMENTO_GRADUACAO",
+            "ORIENTACAO_EM_ANDAMENTO_INICIACAO_CIENTIFICA",
+            "ORIENTACAO_EM_ANDAMENTO_MESTRADO",
+            "OUTRAS_ORIENTACOES_CONCLUIDAS")
+
+orientacoes %>% 
+  filter(tipo_orientacao != "OUTRAS_ORIENTACOES_CONCLUIDAS") %>%
+  ggplot(aes(x = factor(1), fill = tipo_orientacao)) + 
+  geom_bar(width = 0.5, position = position_dodge()) + 
+  scale_fill_discrete(labels = labs_orient,
+                      breaks = breaks_orient) + 
+  labs(title = "Número de publicações por tipo\n", 
+       x = "", 
+       y ="Número de publicações",
+       fill = "Tipo orientação\n") + 
+  theme(axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank(),
+        plot.title = element_text(hjust = 0.5))
+```
+O gráfico acima nos permite entender que o Programa de Pós Graduação em Política Social possui orientações em sua maioria a nível de mestrado. Destaca-se que o número de orientações a nível de doutorado é alto, ainda, quando comparado a dados de outras áreas.
+
+```{r, echo=FALSE}
+labs_orient <- c("Doutorado",
+          "Mestrado",
+          "Concl. Pós Doc",
+          "Andamento Pós Doc",
+          "Andamento Doutorado",
+          "Andamento Graduação",
+          "Andamento PIBIC",
+          "Andamento Mestrado", 
+          "Outras Orientações")
+breaks_orient <- c("ORIENTACAO_CONCLUIDA_DOUTORADO",
+            "ORIENTACAO_CONCLUIDA_MESTRADO",
+            "ORIENTACAO_CONCLUIDA_POS_DOUTORADO",
+            "ORIENTACAO_EM_ANDAMENTO_DE_POS_DOUTORADO",
+            "ORIENTACAO_EM_ANDAMENTO_DOUTORADO",
+            "ORIENTACAO_EM_ANDAMENTO_GRADUACAO",
+            "ORIENTACAO_EM_ANDAMENTO_INICIACAO_CIENTIFICA",
+            "ORIENTACAO_EM_ANDAMENTO_MESTRADO",
+            "OUTRAS_ORIENTACOES_CONCLUIDAS")
+
+orientacoes %>% 
+  filter(tipo_orientacao %in% c("ORIENTACAO_CONCLUIDA_MESTRADO", "ORIENTACAO_CONCLUIDA_DOUTORADO")) %>%
+  ggplot(aes(x = tipo_orientacao, fill = bolsa)) + 
+  geom_bar(width = 0.8, position = position_fill()) + 
+  facet_grid(~ ano) + 
+  scale_x_discrete(labels = labs_orient,
+                      breaks = breaks_orient) + 
+  labs(title = "Número de publicações por tipo por bolsa\n", 
+       y = "Proporção de Bolsa", 
+       x ="Número de publicações",
+       fill = "Bolsa\n") + 
+  theme(plot.title = element_text(hjust = 0.5),
+        axis.text.x=element_blank(),
+        axis.title.y=element_blank(),
+        axis.ticks.x=element_blank()) + coord_flip()
+```
+
+Dando enfoque, agora, nas orientações concluídas de mestrado e doutorado, vamos observar como a proporção do oferecimento de bolsa à elas se comportou durante os anos. Pode-se observar que em 2013 houve um pico expressivo de pagamento de bolsas a orientações de doutorado. Observa-se, também, que em 2010, 2011 e em 2014, não houve orientações de doutorado que ofereceram bolsa.
+
+```{r, echo=FALSE}
+orientacoes %>% 
+  group_by(instituicao) %>%
+  tally() %>%
+  arrange(desc(n))
+```
+
+A tabela acima nos mostra o número de orientações realizadas pelo PPGPS em diferentes universidades. Como esperado, a Universidade de Brasília é predominante. Destaca-se a presença de universidades estrangeiras, como a Berlin School of Economics and Law e a Facultad Latinoamericana de Ciencias Sociales - Argentina.
+
+```{r, echo=FALSE}
+orientacoes %>% 
+    group_by(nome_orientadores) %>%
+    tally() %>%
+    arrange(desc(n)) %>%
+    head(10) %>%
+    ggplot(aes(x = reorder(nome_orientadores, n), y = n, fill = factor(n))) + 
+      geom_col(width = 0.5) + 
+      coord_flip() + 
+  labs(title = "Número de publicações por professor\n", 
+       x = "Nome", 
+       y ="Número de orientações",
+       fill = "Bolsa\n") +
+    theme(
+          legend.position="none",
+          plot.title = element_text(hjust = 0.5))
+```
+Por fim, este último gráfico nos diz quem são os pesquisadores do programa que mais realizam orientações. Com quase 100 orientações está a professora Débora Diniz, socióloga que possui prestígio e reconhecimento nacional e internacional.
+
+# Conclusão
+
+Dessa forma, por meio deste relatório, pode-se expandir o conhecimento e entendimento do Programa de Pós Graduação em Política Social por meio da plataforma R, seus pacotes, da metodologia CRISP-DM e da plataforma Lattes.
+
+
+***
