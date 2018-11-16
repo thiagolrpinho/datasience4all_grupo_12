@@ -1,0 +1,87 @@
+---
+title: "script_do_relatorio_final"
+author: "Thiago Luis"
+date: "November 16, 2018"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r library-load}
+library(jsonlite)
+library(listviewer)
+library(readxl)
+library(readr)
+
+library(ggplot2)
+library(tidyverse)
+library(dplyr) 
+```
+
+```{r}
+json.perfil <- "e-lattes_jsons_pos_educacao_fisica/277.profile.json"
+json.advise <- "e-lattes_jsons_pos_educacao_fisica/277.advise.json"
+json.graph <- "e-lattes_jsons_pos_educacao_fisica/277.graph.json"
+json.list <- "e-lattes_jsons_pos_educacao_fisica/277.list.json"
+json.publication <- "e-lattes_jsons_pos_educacao_fisica/277.publication.json"
+```
+
+###Perfil profissional dos docentes vinculados a pós graduação de educação física
+
+```{r}
+perfil_educacao_fisica <- fromJSON(json.perfil)
+```
+
+O arquivo acima apresenta os dados sobre o perfil dos docentes vinculados a programas de p?s-gradua??o de educação física da UnB, entre 2010 e 2017. 
+Esse arquivo foi fornecido pelos docentes responsáveis pela disciplina.
+
+###Orienta??es de mestrado e doutorado realizadas pelos docentes vinculados ?s p?s-gradua??es
+
+```{r}
+orientacoes_educacao_fisica <- fromJSON(json.advise)
+```
+
+O arquivo acima apresenta dados sobre o orientações de mestrado e doutorado feitas por todos os docentes vinculados aos respectivos programas de p?s-gradua??o da UnB, entre 2010 e 2017. 
+Esse arquivo foi fornecido pelos docentes responsáveis pela disciplina.
+
+###Agrupamento dos docentes conforme ?reas de atua??o
+
+```{r}
+atuacao_profissional_educacao_fisica <- fromJSON(json.graph)
+```
+
+###Redes de colabora??o entre docentes
+
+Os arquivos com sufixo GRA apresentam redes de colabora??o na co-autoria de artigos cient?ficos, feitas entre os docentes vinculados a programas de p?s-gradua??o da UnB, entre 2010 e 2017.
+
+##CRISP-DM Fase.Atividade 2.2 - Descri??o dos Dados
+
+A leitura e manipula??o dos dados ? uma das principais respons?veis por uma boa an?lise de dados, para que possamos analisar de forma eficiente, as seguintes
+bibliotecas foram utilizadas:
+
+```{r}
+installed.packages()
+```
+
+###Descri??o dos dados do perfil
+
+O arquivo unb.perfis.json, que contém dados que caracterizam o perfil profissional de todos os docentes do grupo sob análise.
+
+A quantidade de docentes sob análise é apresentada a seguir.
+```{r}
+length(perfil_educacao_fisica)
+```
+
+Para gerar uma apresentação inicial dos dados que estão contidos nos dados de perfil dos docentes, pode-se usar a função glimpse, da biblioteca dplyr, como ilustra o código seguinte, que apresenta os atributosque podem ser obtidos relativamente a um pesquisador específico, o mais antigo docente ainda em exercício na UnB a ter criado seu registro na plataforma Lattes.
+
+```{r}
+
+glimpse(perfil_educacao_fisica[[1]], width = 30)
+
+```
+
+

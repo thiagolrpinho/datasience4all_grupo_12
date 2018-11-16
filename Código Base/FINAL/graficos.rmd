@@ -1,0 +1,182 @@
+---
+output: html_notebook
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+library(xtable)
+library(readr)
+library(readxl)
+library(jsonlite)
+library(tidyverse)
+library(stringr)
+
+setwd("Dados")
+PUB_ant <- fromJSON("236.publication.json")
+PER_ant <- fromJSON("236.profile.json")
+LIS_ant <- fromJSON("236.list.json")
+ORI_ant <- fromJSON("236.advise.json")
+GRA_ant <- fromJSON("236.graph.json")
+
+PUB_pol <- fromJSON("314.publication.json")
+PER_pol <- fromJSON("314.profile.json")
+LIS_pol <- fromJSON("314.list.json")
+ORI_pol <- fromJSON("314.advise.json")
+GRA_pol <- fromJSON("314.graph.json")
+
+PUB_cie <- fromJSON("255.publication.json")
+PER_cie <- fromJSON("255.profile.json")
+LIS_cie <- fromJSON("255.list.json")
+ORI_cie <- fromJSON("255.advise.json")
+GRA_cie <- fromJSON("255.graph.json")
+
+```
+
+```{r, echo=TRUE}
+ORI_ant <- ORI_ant %>%
+  lapply(function(x) {
+    bind_rows(x, .id = 'ano')
+  }) %>%
+  bind_rows(.id = 'tipo_orientacao')
+
+ORI_ant$nome_orientadores <- as.character(ORI_ant$nome_orientadores)
+
+ORI_pol <- ORI_pol %>%
+  lapply(function(x) {
+    bind_rows(x, .id = 'ano')
+  }) %>%
+  bind_rows(.id = 'tipo_orientacao')
+
+ORI_pol$nome_orientadores <- as.character(ORI_pol$nome_orientadores)
+
+ORI_cie <- ORI_cie %>%
+  lapply(function(x) {
+    bind_rows(x, .id = 'ano')
+  }) %>%
+  bind_rows(.id = 'tipo_orientacao')
+
+ORI_cie$nome_orientadores <- as.character(ORI_cie$nome_orientadores)
+```
+
+```{r, echo=TRUE}
+ORI_ant <- ORI_ant %>%
+  mutate(programa = 'Antropologia')
+
+ORI_pol <- ORI_pol %>%
+  mutate(programa = 'Política Social')
+
+ORI_cie <- ORI_cie %>%
+  mutate(programa = 'Ciência do Comp.')
+
+ORI <- rbind(ORI_ant, ORI_pol, ORI_cie)
+
+```
+
+O arquivo que separa pesquisadores por área já está organizado:
+```{r, echo=TRUE}
+area_pesquisadores <- fromJSON("data/PolSocial.researchers_by_area.json")
+area_pesquisadores <- area_pesquisadores$`Areas dos pesquisadores`
+names(area_pesquisadores)
+```
+
+
+```{r, echo=FALSE}
+labs_orient <- c("Concl. Doutorado",
+          "Concl. Mestrado",
+          "Concl. Pós Doc",
+          "Andamento Pós Doc",
+          "Andamento Doutorado",
+          "Andamento Graduação",
+          "Andamento PIBIC",
+          "Andamento Mestrado", 
+          "Outras Orientações")
+breaks_orient <- c("ORIENTACAO_CONCLUIDA_DOUTORADO",
+            "ORIENTACAO_CONCLUIDA_MESTRADO",
+            "ORIENTACAO_CONCLUIDA_POS_DOUTORADO",
+            "ORIENTACAO_EM_ANDAMENTO_DE_POS_DOUTORADO",
+            "ORIENTACAO_EM_ANDAMENTO_DOUTORADO",
+            "ORIENTACAO_EM_ANDAMENTO_GRADUACAO",
+            "ORIENTACAO_EM_ANDAMENTO_INICIACAO_CIENTIFICA",
+            "ORIENTACAO_EM_ANDAMENTO_MESTRADO",
+            "OUTRAS_ORIENTACOES_CONCLUIDAS")
+
+ORI %>% 
+  filter(tipo_orientacao != "OUTRAS_ORIENTACOES_CONCLUIDAS") %>%
+  ggplot(aes(x = factor(1), fill = tipo_orientacao)) + 
+  geom_bar(position = position_dodge()) + 
+  facet_grid(. ~ programa) +
+  scale_fill_discrete(labels = labs_orient,
+                      breaks = breaks_orient) + 
+  labs(title = "Número de publicações por tipo\n", 
+       x = "", 
+       y ="Número de publicações",
+       fill = "Tipo orientação\n") + 
+  theme(axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank(),
+        plot.title = element_text(hjust = 0.5))
+```
+
+```{r, echo=FALSE}
+labs_orient <- c("Doutorado",
+          "Mestrado",
+          "Concl. Pós Doc",
+          "Andamento Pós Doc",
+          "Andamento Doutorado",
+          "Andamento Graduação",
+          "Andamento PIBIC",
+          "Andamento Mestrado", 
+          "Outras Orientações")
+breaks_orient <- c("ORIENTACAO_CONCLUIDA_DOUTORADO",
+            "ORIENTACAO_CONCLUIDA_MESTRADO",
+            "ORIENTACAO_CONCLUIDA_POS_DOUTORADO",
+            "ORIENTACAO_EM_ANDAMENTO_DE_POS_DOUTORADO",
+            "ORIENTACAO_EM_ANDAMENTO_DOUTORADO",
+            "ORIENTACAO_EM_ANDAMENTO_GRADUACAO",
+            "ORIENTACAO_EM_ANDAMENTO_INICIACAO_CIENTIFICA",
+            "ORIENTACAO_EM_ANDAMENTO_MESTRADO",
+            "OUTRAS_ORIENTACOES_CONCLUIDAS")
+
+ORI %>% 
+  filter(tipo_orientacao %in% c("ORIENTACAO_CONCLUIDA_MESTRADO", "ORIENTACAO_CONCLUIDA_DOUTORADO")) %>%
+  ggplot(aes(x = tipo_orientacao, fill = bolsa)) + 
+  geom_bar(width = 0.8, position = position_fill()) + 
+  facet_grid(ano ~ programa) + 
+  scale_x_discrete(labels = labs_orient,
+                      breaks = breaks_orient) + 
+  labs(title = "Número de publicações por tipo por bolsa\n", 
+       y = "Proporção de Bolsa", 
+       x ="Número de publicações",
+       fill = "Bolsa\n") + 
+  theme(plot.title = element_text(hjust = 0.5),
+        axis.text.x=element_blank(),
+        axis.title.y=element_blank(),
+        axis.ticks.x=element_blank()) + coord_flip()
+```
+
+```{r, echo=FALSE}
+orientacoes %>% 
+  group_by(instituicao) %>%
+  tally() %>%
+  arrange(desc(n))
+```
+
+
+```{r, echo=FALSE}
+ORI %>% 
+    group_by(nome_orientadores, programa) %>%
+    tally() %>%
+    arrange(desc(n)) %>%
+    head(10) %>%
+    ggplot(aes(x = reorder(nome_orientadores, n), y = n, fill = factor(programa))) + 
+      geom_col(width = 0.5) + 
+      coord_flip() + 
+  labs(title = "Número de orientações por professor\n", 
+       x = "Nome", 
+       y ="Número de orientações",
+       fill = "Programa\n") +
+    theme(,
+          plot.title = element_text(hjust = 0.5))
+```
+
+
