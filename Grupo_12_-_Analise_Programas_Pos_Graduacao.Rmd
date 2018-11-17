@@ -9,9 +9,7 @@ output:
     df_print: paged
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_knit$set(root.dir = "~/Documents/DSA4")
-```
+
 
 # Introdução
 
