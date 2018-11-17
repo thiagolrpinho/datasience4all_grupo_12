@@ -16,6 +16,7 @@ library(readr)
 library(ggplot2)
 library(tidyverse)
 library(stringr)
+library(knitr)
 
 # Biblioteca com funções disponibizadas pelos responsáveis da disciplina 
 source("elattes.ls2df.R")
@@ -105,7 +106,7 @@ O programa, na última Avaliação Quadrienal da CAPES recebeu nota 4, que segun
 
 A tabela a seguir exibe as notas obtidas pelo programa no período de 2014 a 2017, tanto de Mestrado quanto Doutorado.
 
-```{r}
+```{r, echo = FALSE }
 dt <- data.frame("Anos" = c(2004, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2017), "Notas" = c(3,3,3,3,3,3,3,4,4,4))
 kable(dt)
 ```
@@ -125,14 +126,14 @@ O Programa de Pós-Graduação de Educação, na última Avaliação Quadrienal 
 
 A tabela a seguir exibe as notas obtidas pelo programa no período de 1998 a 2017 na categoria Mestrado.
 
-```{r}
+```{r, echo = FALSE }
 dt <- data.frame("Anos" = c(1998,2001,	2004,	2007,	2008,	2009,	2010,	2011,	2012,	2013,	2014,	2017), "Notas" = c(	3,	4,	4,	4,	4,	4,	4,	4,	4,	4,	4,	5))
 kable(dt)
 ```
 
 A tabela a seguir exibe as notas obtidas pelo programa no período de 2004 a 2017 na categoria Doutorado.
 
-```{r}
+```{r, echo = FALSE  }
 dt <- data.frame("Anos" = c(2004,	2007,	2008,	2009,	2010,	2011,	2012,	2013,	2014,	2017), "Notas" = c(	3	,4	,4	,4	,4	,4	,4	,4	,4	,5))
 kable(dt)
 ```
@@ -141,7 +142,7 @@ O Programa de Pós-Graduação de Profissional de Educação, na última Avalia�
 
 A tabela a seguir exibe as notas obtidas pelo programa no período de 2011 a 2017.
 
-```{r}
+```{r, echo = FALSE }
 dt <- data.frame("Anos" = c(2011	,2012	,2013	,2014	,2017), "Notas" = c(	3	,3	,3	,3	,3))
 kable(dt)
 ```
