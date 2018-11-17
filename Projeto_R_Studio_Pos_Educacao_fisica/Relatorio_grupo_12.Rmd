@@ -74,10 +74,9 @@ Bruno Helder Rodrigues Guedes, Gabriel Almeida Campos, Thiago Luis Rodrigues Pin
 
 
 # Contextualização
-Nesta sessão iremos discorrer sobre os programas de pós-graduação avaliados para a execução deste projeto e também como a Universidade de Brasília se inclui neste contexto.
+Nesta sessão iremos discorrer sobre os programas de pós-graduação avaliados para a execução deste projeto e também como a Universidade de Brasília se inclue neste contexto.
 
 ### O que é a CAPES e o Plano Nacional de Pós-Graduação - PNPG
-
 A CAPES, ou Coordenação de Aperfeiçoamento de Pessoal de Nível Superior, é uma instituição vinculada ao Ministério da Educação, que atua na organização, expansão e avaliação de programas de pós-graduação (mestrado e doutorado) em todo o país. Sua missão institucional é definida como _"Avaliação da pós-graduação stricto sensu, acesso e divulgação da produção científica, investimentos na formação de especialistas de alto nível e promoção da cooperação científica internacional."_, e então, possui diversos programas para assegurar que os objetivos de sua missão sejam cumpridos. 
 
 O Plano Nacional de Pós-Graduação é um programa institucional que visa definir as estratégias e propostas de políticas públicas para a área de pós-graduação e pesquisa no Brasil.
@@ -104,7 +103,48 @@ O programa tem como objetivo consolidar e expandir a pesquisa e o desenvolviment
 
 O programa, na última Avaliação Quadrienal da CAPES recebeu nota 4, que segundo a legenda dos conceitos significa _"bom"_.
 
+A tabela a seguir exibe as notas obtidas pelo programa no período de 2014 a 2017, tanto de Mestrado quanto Doutorado.
 
+```{r}
+dt <- data.frame("Anos" = c(2004, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2017), "Notas" = c(3,3,3,3,3,3,3,4,4,4))
+kable(dt)
+```
+
+##### Programa de Pós-Graduação de Ciências de Reabilitação
+O  PPG-CR, ou Programa de Pós-Graduação de Ciências de Reabilitação, aprovado pela CAPES em 2014, tem como objetivo promover e incentivar as atividades de ensino e pesquisa e de prática clínica na região Centro-Oeste do Brasil. O programa, além dos objetivos padrões de capacitação profissional e de conhecimento científico, também apresenta um grande teor prático e social, buscando auxiliar a região no contexto da área. O corpo docente é formado por professores da FCE e professores da Faculdade de Educação Física. 
+
+O programa possui uma área de concentração,  “Fundamentos da Avaliação e Intervenção em Reabilitação”, que por sua vez é composta de linhas de pesquisa, Processos Biológicos Aplicados à Estrutura, Função e Reabilitação; Aspectos Biomecânicos e Funcionais Associados à Prevenção, Desempenho e Reabilitação e Tecnologias Assistivas Associadas ao Processo de Reabilitação.
+
+
+##### Programa de Pós-Graduação de Educação e Profissional de Educação
+O Programa de Pós-Graduação de Educação, é organizado pela Faculdade de Educação da Universidade de Brasília e tem como objetivo desenvolver o conhecimento científico e a formação de profissionais qualificados na área. Além desse compromisso de assegurar a qualidade da área, o Programa desenvolve atividades de pesquisa e extensão através do desenvolvimento dos projetos de seus professores.  Além da produção científica, é visado o desenvolvimento e contribuição técnico no contexto de onde é realizado o programa. O Programa de Pós-Graduação de Profissional de Educação surgiu de uma linha de pesquisa do Programa de Pós-Graduação de Educação, com foco em Políticas Públicas e Gestão da Educação.  
+
+
+
+O Programa de Pós-Graduação de Educação, na última Avaliação Quadrienal da CAPES recebeu nota 5, em Mestrado e Doutorado, que segundo a legenda dos conceitos significa _"muito bom"_.
+
+A tabela a seguir exibe as notas obtidas pelo programa no período de 1998 a 2017 na categoria Mestrado.
+
+```{r}
+dt <- data.frame("Anos" = c(1998,2001,	2004,	2007,	2008,	2009,	2010,	2011,	2012,	2013,	2014,	2017), "Notas" = c(	3,	4,	4,	4,	4,	4,	4,	4,	4,	4,	4,	5))
+kable(dt)
+```
+
+A tabela a seguir exibe as notas obtidas pelo programa no período de 2004 a 2017 na categoria Doutorado.
+
+```{r}
+dt <- data.frame("Anos" = c(2004,	2007,	2008,	2009,	2010,	2011,	2012,	2013,	2014,	2017), "Notas" = c(	3	,4	,4	,4	,4	,4	,4	,4	,4	,5))
+kable(dt)
+```
+
+O Programa de Pós-Graduação de Profissional de Educação, na última Avaliação Quadrienal da CAPES recebeu nota 3, que segundo a legenda dos conceitos significa _"regular"_.
+
+A tabela a seguir exibe as notas obtidas pelo programa no período de 2011 a 2017.
+
+```{r}
+dt <- data.frame("Anos" = c(2011	,2012	,2013	,2014	,2017), "Notas" = c(	3	,3	,3	,3	,3))
+kable(dt)
+```
 
 
 # Descrição da Metodologia
@@ -143,7 +183,7 @@ Fase de avaliação dos resultados obtidos na etapa de modelagem e verificando s
 ### Deployment
 
 Fase de implantação de fato dos resultados obtidos nas análises realizadas e assim concluindo o processo de desenvolvimento.
-
+ 
 
 #CRISP-DM (Corresponderia à seção de Metodologia)
 Essa parte eu acho que devemos manter bastante coisa, não tem muito o que acrescentar sobre o CRIPS, no máximo que além de tudo o que foi dito, nós somos estimulados a usar esse método por questões didáticas.
