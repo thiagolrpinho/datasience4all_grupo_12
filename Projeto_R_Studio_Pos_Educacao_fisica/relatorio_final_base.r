@@ -8,18 +8,68 @@ library(igraph)
 #upload de arquivo com funções para transformar listas em Data Frames e objeto igraph
 source("elattes.ls2df.R")
 
-json.perfil <- "e-lattes_jsons_pos_educacao_fisica/277.profile.json"
-json.advise <- "e-lattes_jsons_pos_educacao_fisica/277.advise.json"
-json.graph <- "e-lattes_jsons_pos_educacao_fisica/277.graph.json"
-json.list <- "e-lattes_jsons_pos_educacao_fisica/277.list.json"
-json.publication <- "e-lattes_jsons_pos_educacao_fisica/277.publication.json"
+#Educacao Física - 277
+json.perfil.educacao_fisica <- "dataset/pos_educacao_fisica/277.profile.json"
+json.advise.educacao_fisica <- "dataset/pos_educacao_fisica/277.advise.json"
+json.graph.educacao_fisica <- "dataset/pos_educacao_fisica/277.graph.json"
+json.list.educacao_fisica <- "dataset/pos_educacao_fisica/277.list.json"
+json.publication.educacao_fisica <- "dataset/pos_educacao_fisica/277.publication.json"
+
+# Educação - 277
+json.perfil.educacao <- "dataset/pos_educacao/273.profile.json"
+json.advise.educacao <- "dataset/pos_educacao/273.advise.json"
+json.graph.educacao <- "dataset/pos_educacao/273.graph.json"
+json.list.educacao <- "dataset/pos_educacao/273.list.json"
+json.publication.educacao <- "dataset/pos_educacao/273.publication.json"
+
+# Ciências de Reabilitação  - 250
+json.perfil.ciencias_de_reabilitacao <- "dataset/pos_ciencias_de_reabilitacao/250.profile.json"
+json.advise.ciencias_de_reabilitacao <- "dataset/pos_ciencias_de_reabilitacao/250.advise.json"
+json.graph.ciencias_de_reabilitacao <- "dataset/pos_ciencias_de_reabilitacao/250.graph.json"
+json.list.ciencias_de_reabilitacao <- "dataset/pos_ciencias_de_reabilitacao/250.list.json"
+json.publication.ciencias_de_reabilitacao <- "dataset/pos_ciencias_de_reabilitacao/250.publication.json"
+
+# Profissional Educação -   274
+json.perfil.profissional_educacao <- "dataset/pos_profissional_educacao/274.profile.json"
+json.advise.profissional_educacao <- "dataset/pos_profissional_educacao/274.advise.json"
+json.graph.profissional_educacao <- "dataset/pos_profissional_educacao/274.graph.json"
+json.list.profissional_educacao <- "dataset/pos_profissional_educacao/274.list.json"
+json.publication.profissional_educacao <- "dataset/pos_profissional_educacao/274.publication.json"
 
 
 #Definição da pasta e leitura de arquivos
-perfil <- fromJSON(json.perfil)
-public <- fromJSON(json.publication)
-orient <- fromJSON(json.advise)
-graphl <- fromJSON(json.graph)
+#Perfis
+perfil.educacao_fisica <- fromJSON(json.perfil.educacao_fisica)
+perfil.educacao <- fromJSON(json.perfil.educacao)
+perfil.profissional_educacao <- fromJSON(json.perfil.profissional_educacao)
+perfil.ciencias_de_reabilitacao <- fromJSON(json.perfil.ciencias_de_reabilitacao)
+
+perfil <- append( append(perfil.ciencias_de_reabilitacao, perfil.profissional_educacao), append( perfil.educacao, perfil.educacao_fisica) )
+
+#Publicações
+public.educacao_fisica <- fromJSON(json.publication.educacao_fisica)
+public.educacao <- fromJSON(json.publication.educacao)
+public.profissional_educacao <- fromJSON(json.publication.profissional_educacao)
+public.ciencias_de_reabilitacao <- fromJSON(json.publication.ciencias_de_reabilitacao)
+
+public <- append( append(public.ciencias_de_reabilitacao, public.profissional_educacao), append( public.educacao, public.educacao_fisica) )
+
+
+#Orientações
+orient.educacao_fisica <- fromJSON(json.advise.educacao_fisica)
+orient.educacao <- fromJSON(json.advise.educacao)
+orient.profissional_educacao <- fromJSON(json.advise.profissional_educacao)
+orient.ciencias_de_reabilitacao <- fromJSON(json.advise.ciencias_de_reabilitacao)
+
+orient <- append( append(orient.ciencias_de_reabilitacao, orient.profissional_educacao), append( orient.educacao, orient.educacao_fisica) )
+
+#Orientações
+graphl.educacao_fisica <- fromJSON(json.graph.educacao_fisica)
+graphl.educacao <- fromJSON(json.graph.educacao)
+graphl.profissional_educacao <- fromJSON(json.graph.profissional_educacao)
+graphl.ciencias_de_reabilitacao <- fromJSON(json.graph.ciencias_de_reabilitacao)
+
+graphl <- append( append(graphl.ciencias_de_reabilitacao, graphl.profissional_educacao), append( graphl.educacao, graphl.educacao_fisica) )
 
 ######
 #Análise do arquivo perfil
