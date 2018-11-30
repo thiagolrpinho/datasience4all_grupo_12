@@ -1,0 +1,18 @@
+# Biblioteca com funções disponibizadas pelos responsáveis da disciplina 
+setwd("~/Documents/Estudos/UnB/Data Science 4 All/Projeto Final - Grupo 12/Projeto_R_Studio_Pos_Educacao_fisica")
+source("elattes.ls2df.R")
+# Bibliotecas utilizadas no script abaixo
+library(jsonlite)
+library(tidyverse)
+
+# Ciências de Reabilitação - 250
+json.publication.ciencias_de_reabilitacao <- "dataset/pos_ciencias_de_reabilitacao/250.publication.json"
+
+unb.orientacao.ciencias_de_reabilitacao <- fromJSON(json.publication.ciencias_de_reabilitacao)
+
+producoes.df <- extrai.producoes(unb.perfil.ciencias_de_reabilitacao)
+
+qplot(ano, data=producoes.df, geom="density", fill=tipo_producao, alpha=I(.3), 
+facets=tipo_producao~.,
+main="Produções da Pós em Ciências de Reabilitação", xlab="Ano", 
+ylab="Densidade" )
