@@ -35,26 +35,27 @@ print ("Especialidade")
 table(unlist(sapply(unb.perfil.ciencias_de_reabilitacao, function(x) (x$areas_de_atuacao$especialidade))))
 
 
-total.df <- merge(producoes.df, perfils.df,by="idLattes")
-
-producoes.df %>%
-  filter(pais_de_publicacao %in% c("Brasil", "Estados Unidos", "Holanda",
-                                   "Grã-Bretanha", "Alemanha", "Suiça")) %>%
-  group_by(ano,pais_de_publicacao) %>%
-  ggplot(aes(x=ano,y=pais_de_publicacao, color= pais_de_publicacao)) +
-  xlab("Ano") + ylab("Pais") + geom_point() + geom_jitter()
- 
-producoes.df %>%
-  group_by(ano,tipo_producao) %>%
-  ggplot(aes(x=ano,y=..count.., color= tipo_producao)) +
-  xlab("Ano") + ylab("Tipo") + geom_point() + geom_jitter()
+# QUESTÃO 13
 
 
 qplot(ano, data=producoes.df, geom="density", fill=tipo_producao, alpha=I(.9), 
       facets=tipo_producao~.,
       main="Produções da Pós em Ciências de Reabilitação", xlab="Ano", 
       ylab="Densidade" )
+#Laço para corrigir o erro de produções sem ano, mas com ano do trabalho
+for (row in 1:nrow(producoes.df)) {
+  if ( is.na(producoes.df$ano[row]) ){
+    producoes.df$ano[row] <- producoes.df$ano_do_trabalho[row]
+  } 
+}
+producao.df <- merge(producoes.df, count(producoes.df, "idLattes"))
+producao.df %>%
+  group_by(idLattes) %>%
+  ggplot(aes(x=ano ,y=freq, color=idLattes)) +
+  xlab("Quantidade de Produção") + ylab("Ano") + ggtitle("Produção de Ciências de Reabilitação") + geom_point() + geom_jitter() + facet_grid(tipo_producao~.)
 
+
+# QUESTÃO 14
 # Apresente / cole abaixo um script para análise e visualização de dados de perfil / orientações. 
 # A visualização deve levar em consideração as especialidades dos professores como atributo e o fato 
 # de ter ou não participado de congressos internacionais nos últimos anos. O gráfico não pode ser no 
@@ -88,19 +89,33 @@ perfil.orientacoes.df %>%
   xlab("Ano") + ylab("Especialidade") + ggtitle("Produções de Ciências de Reabilitação Não-Internacionais") + geom_point() + geom_jitter()
   
 ### QUESTÃO 12
-list <- c()
-for (member in perfils.df) {
-  areas_de_atuacao <- filter(areas_atuacao.df, idLattes==member['idLattes'][,1])
-  publicacoes <- filter(producoes.df, idLattes==member['idLattes'][,1])
-  result <- c("Nome"= member['nome'], "Areas de Atuacao"= areas_de_atuacao, "Publicacoes"=publicacoes)
-  append(list, result)
-}
-
 areas_atuacao.df <- extrai.areas.atuacao(unb.perfil.ciencias_de_reabilitacao)
 perfils.df <- extrai.perfis(unb.perfil.ciencias_de_reabilitacao)
-producoes.df <- extrai.producoes(unb.perfil.ciencias_de_reabilitacao)
 perfil.area_atuacao.df <- merge(perfils.df, areas_atuacao.df)
+perfil.df <- merge(perfil.area_atuacao.df,count(producoes.df$idLattes), by.x = "idLattes", by.y="x")
+perfil.df <- merge(perfil.df,count(orientacoes.df$idLattes), by.x = "idLattes", by.y="x")
+colnames(perfil.df)[18] <- "count_orientacoes"
+colnames(perfil.df)[17] <- "count_producoes"
 
+perfil.df %>%
+  group_by(idLattes, grande_area) %>%
+  ggplot(aes(x=count_producoes ,y=count_orientacoes, color= grande_area)) +
+  xlab("Número de Produções") + ylab("Número de Orientações") + ggtitle("Produções e Orientações de Ciências de Reabilitação") + geom_point() + geom_jitter()
+
+perfil.df %>%
+  group_by(idLattes, area) %>%
+  ggplot(aes(x=count_producoes ,y=count_orientacoes, color= area)) +
+  xlab("Número de Produções") + ylab("Número de Orientações") + ggtitle("Produções e Orientações de Ciências de Reabilitação") + geom_point() + geom_jitter()
+
+perfil.df %>%
+  group_by(idLattes) %>%
+  ggplot(aes(x=count_producoes ,y=count_orientacoes, color= nome)) +
+  xlab("Número de Produções") + ylab("Número de Orientações") + ggtitle("Produções e Orientações de Ciências de Reabilitação") + geom_point() + geom_jitter()
+
+perfil.df %>%
+  group_by(idLattes, especialidade) %>%
+  ggplot(aes(x=count_producoes ,y=count_orientacoes, color= especialidade)) +
+  xlab("Número de Produções") + ylab("Número de Orientações") + ggtitle("Produções e Orientações de Ciências de Reabilitação") + geom_point() + geom_jitter()
 
 
 # QUESTÃO 15
@@ -123,10 +138,6 @@ colors <- brewer.pal(range(contagem$freq)[2],"Greens")
 
 # Quanto mais escuro o verde, maior o número de publicações
 V(g3)$color <- colors[contagem$freq]
-
-df <- merge(grafo.df$properties, grafo.df$nodes, by.x = "idLattes", by.y = "id")
-df <- merge(df[!duplicated(df[c('idLattes')]),], grafo.df$nodes, by.x = "idLattes", by.y = "id")
-df <- df[-7]
 
 plot(g3, 
      vertex.label.color = "black",
