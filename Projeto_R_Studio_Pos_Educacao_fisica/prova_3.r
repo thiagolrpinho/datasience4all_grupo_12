@@ -149,4 +149,14 @@ plot(g3,
      layout = layout_nicely(g3))
 
 
+# Questões idiotas 
+
+#Questão 15
+count( producao.df %>% filter(tipo_producao == "PERIODICO"), "periodico")
+
+#Questão 14
+
+library(data.table) # load package
+dt <- data.table(producao.df) # transpose to data.table
+dt[, list(Freq =.N), by=list(producao.df$tipo_producao,producao.df$ano)] # use list to name var directly
 
